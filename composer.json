@@ -1,0 +1,37 @@
+{
+    "name": "super-admin-ext/reporter",
+    "description": "Exception reporter for laravel",
+    "type": "library",
+    "keywords": ["super-admin", "exception", "reporter"],
+    "homepage": "https://github.com/super-admin-org/reporter",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sb | Super-Admin",
+            "email": "info@super-admin.org"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": ">=7.0",
+        "super-admin-org/super-admin": ">=1.0.20",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=6.0",
+        "laravel/laravel": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SuperAdmin\\Admin\\Reporter\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SuperAdmin\\Admin\\Reporter\\ReporterServiceProvider"
+            ]
+
+        }
+    }
+}
