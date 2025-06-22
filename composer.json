@@ -1,5 +1,5 @@
 {
-    "name": "super-admin-ext/reporter",
+    "name": "super-admin-org/reporter",
     "description": "Exception reporter for laravel",
     "type": "library",
     "keywords": ["super-admin", "exception", "reporter"],
@@ -14,7 +14,7 @@
     "require": {
         "php": ">=7.0.0",
         "laravel/framework": ">=7.0",
-        "super-admin-org/super-admin": ">=1.0.20",
+        "super-admin-org/super-admin": ">=1.0",
         "ext-json": "*"
     },
     "require-dev": {

@@ -4,8 +4,8 @@ Exception reporter for Super-Admin
 This tool stores the exception information into the database and provides a developer-friendly web interface to view the exception information.
 
 [![StyleCI](https://styleci.io/repos/508366116/shield?branch=main)](https://styleci.io/repos/508366116)
-[![Packagist](https://img.shields.io/github/license/super-admin-org/reporter.svg?maxAge=2592000&style=flat-square&color=brightgreen)](https://packagist.org/packages/super-admin-ext/reporter)
-[![Total Downloads](https://img.shields.io/packagist/dt/super-admin-ext/reporter.svg?style=flat-square&color=brightgreen)](https://packagist.org/packages/super-admin-ext/reporter)
+[![Packagist](https://img.shields.io/github/license/super-admin-org/reporter.svg?maxAge=2592000&style=flat-square&color=brightgreen)](https://packagist.org/packages/super-admin-org/reporter)
+[![Total Downloads](https://img.shields.io/packagist/dt/super-admin-org/reporter.svg?style=flat-square&color=brightgreen)](https://packagist.org/packages/super-admin-org/reporter)
 [![Pull request welcome](https://img.shields.io/badge/pr-welcome-green.svg?style=flat-square&color=brightgreen)]()
 
 ## Screenshot
@@ -16,11 +16,11 @@ This tool stores the exception information into the database and provides a deve
 ## Installation
 
 ```
-$ composer require super-admin-ext/reporter
+$ composer require super-admin-org/reporter
 
 $ php artisan vendor:publish --tag=super-admin-reporter
 
-$ php artisan migrate --path=vendor/super-admin-ext/reporter/database/migrations
+$ php artisan migrate --path=vendor/super-admin-org/reporter/database/migrations
 
 $ php artisan admin:import reporter
 ```
