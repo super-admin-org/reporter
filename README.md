@@ -10,7 +10,7 @@ This tool stores the exception information into the database and provides a deve
 
 ## Screenshot
 
-![super-admin-reporter](https://user-images.githubusercontent.com/86517067/176226958-b3ed0a1c-7b87-4e43-a2fd-f487f110d9f5.png)
+![super-admin-reporter](https://github.com/user-attachments/assets/da049dcc-74ee-4d03-b19e-1fc58eff8499)
 
 
 ## Installation
