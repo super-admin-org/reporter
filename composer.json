@@ -7,7 +7,12 @@
         "exception",
         "reporter"
     ],
-    "homepage": "https://github.com/super-admin-org/reporter",
+    "homepage": "https://super-admin.org/laravel/extension-reporter/",
+    "support": {
+        "docs": "https://super-admin.org/laravel/extension-reporter/",
+        "issues": "https://github.com/super-admin-org/reporter/issues",
+        "source": "https://github.com/super-admin-org/reporter"
+    },
     "license": "MIT",
     "authors": [
         {
@@ -18,7 +23,7 @@
     "require": {
         "php": "^8.0",
         "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0|^13.0",
-        "super-admin-org/super-admin": "^1.0",
+        "super-admin-org/super-admin": "^1.0|^2.0",
         "ext-json": "*"
     },
     "require-dev": {
