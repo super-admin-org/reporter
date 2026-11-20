@@ -13,6 +13,13 @@ class Reporter extends Extension
     use BootExtension;
 
     /**
+     * Migrations run by `php artisan migrate`; super-admin also lists pending ones in `admin:upgrade`.
+     *
+     * @var string
+     */
+    public $migrations = __DIR__.'/../database/migrations';
+
+    /**
      * Value stored instead of a redacted secret.
      */
     public const REDACTED = '[redacted]';

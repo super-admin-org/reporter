@@ -19,6 +19,7 @@
 
 ### Added
 
+- Assets are also tagged `laravel-assets`, so Laravel apps republish them after every `composer update`. The migration folder is declared on the extension, so `php artisan admin:upgrade` (in super-admin versions that have it) lists and runs it.
 - **Seen** column and badge: how many times the same exception happened at the same file and line.
 - `php artisan reporter:prune {--days=}` and the `retention_days` option.
 - Filters by path and HTTP method.

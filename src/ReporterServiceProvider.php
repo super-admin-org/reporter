@@ -22,7 +22,7 @@ class ReporterServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes(
                 [__DIR__.'/../resources/assets/' => public_path('vendor/super-admin-reporter')],
-                'super-admin-reporter'
+                ['super-admin-reporter', 'laravel-assets']
             );
 
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
