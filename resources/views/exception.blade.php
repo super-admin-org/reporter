@@ -25,12 +25,13 @@
     }
 
 </style>
-<div class="card card-primary">
+<div class="card">
 
     <div class="card-header">
-        <h3 class="card-title">
-            <h3 class="card-title"><i class="icon-info"></i>Request details</h3>
-        </h3>
+        <h3 class="card-title"><i class="icon-info"></i> Request details</h3>
+        @if(($occurrences ?? 1) > 1)
+            <span class="badge bg-danger" title="Same exception at the same file and line">seen &times;{{ $occurrences }}</span>
+        @endif
 
         <div class="card-tools">
             <a href="{{ route('exceptions.index') }}" class="btn btn-sm btn-primary"><i class="icon-list"></i>&nbsp;{{ trans('admin.list') }}</a>
@@ -123,7 +124,7 @@
 </div>
 
 
-<div class="card card-primary mt-4">
+<div class="card mt-4">
     <div class="card-header">
         <h3 class="card-title"><i class="icon-file-code"></i>Exception Trace</h3>
     </div>

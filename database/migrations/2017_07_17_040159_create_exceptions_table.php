@@ -45,7 +45,7 @@ class CreateExceptionsTable extends Migration
             $table->increments('id');
             $table->string('type', 255);
             $table->string('code');
-            $table->string('message', 255);
+            $table->text('message');
             $table->string('file', 255);
             $table->integer('line');
             $table->text('trace');
@@ -57,6 +57,9 @@ class CreateExceptionsTable extends Migration
             $table->text('headers');
             $table->string('ip');
             $table->timestamps();
+
+            $table->index('created_at');
+            $table->index(['type', 'line']);
         });
     }
 

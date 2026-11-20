@@ -11,8 +11,6 @@ trait BootExtension
     {
         static::registerRoutes();
 
-        static::importAssets();
-
         Admin::extend('reporter', __CLASS__);
     }
 
@@ -25,7 +23,7 @@ trait BootExtension
     {
         parent::routes(function ($router) {
             /* @var Router $router */
-            $router->resource('exceptions', 'SuperAdmin\Admin\Reporter\ExceptionController');
+            $router->resource('exceptions', 'SuperAdmin\Admin\Reporter\ExceptionController')->only(['index', 'show', 'destroy']);
         });
     }
 
@@ -39,6 +37,10 @@ trait BootExtension
         parent::createPermission('Exceptions reporter', 'ext.reporter', 'exceptions*');
     }
 
+    /**
+     * Add the Prism highlighter (published with `vendor:publish --tag=super-admin-reporter`).
+     * Called by the detail page only, not on every admin page.
+     */
     public static function importAssets()
     {
         Admin::js('/vendor/super-admin-reporter/prism/prism.js');

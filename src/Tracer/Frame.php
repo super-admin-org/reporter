@@ -21,9 +21,13 @@ class Frame
 
     public function extract()
     {
-        preg_match('/#\d+\s([^:]+):?\s?(.*)/', $this->frame, $matches);
+        // "#3 /path/File.php(12): Class->call()", "#3 D:\path\File.php(12): ...", "#4 [internal function]: ...", "#5 {main}"
+        if (! preg_match('/^#\d+\s(.+?\(\d+\)|\[internal function\]|\{main\})(?::\s?(.*))?$/', trim($this->frame), $matches)) {
+            return $this->attributes;
+        }
+
         $this->parseFileAndLine($matches[1]);
-        $this->parseCall($matches[2]);
+        $this->parseCall($matches[2] ?? '');
         $this->fetchCodeBlock();
 
         return $this->attributes;
@@ -31,9 +35,9 @@ class Frame
 
     public function parseFileAndLine($str)
     {
-        if (Str::startsWith($str, '/')) {
-            preg_match('/^([^(]+)\((\d+)\)/', $str, $matches);
-            list(, $this->attributes['file'], $this->attributes['line']) = $matches;
+        if (preg_match('/^(.+)\((\d+)\)$/', $str, $matches)) {
+            $this->attributes['file'] = $matches[1];
+            $this->attributes['line'] = (int) $matches[2];
         } else {
             $this->attributes['name'] = $str;
         }

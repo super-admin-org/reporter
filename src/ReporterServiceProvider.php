@@ -3,6 +3,7 @@
 namespace SuperAdmin\Admin\Reporter;
 
 use Illuminate\Support\ServiceProvider;
+use SuperAdmin\Admin\Reporter\Console\PruneCommand;
 
 class ReporterServiceProvider extends ServiceProvider
 {
@@ -11,7 +12,12 @@ class ReporterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'super-admin-reporter');
+        // Template-aware: <views>/<template>/ and <template>/extensions/super-admin-reporter/ override <views>/.
+        if (class_exists(\SuperAdmin\Admin\Template\TemplateManager::class)) {
+            \SuperAdmin\Admin\Facades\Admin::template()->extensionViews('super-admin-reporter', __DIR__.'/../resources/views');
+        } else {
+            $this->loadViewsFrom(__DIR__.'/../resources/views', 'super-admin-reporter');
+        }
 
         if ($this->app->runningInConsole()) {
             $this->publishes(
@@ -20,6 +26,8 @@ class ReporterServiceProvider extends ServiceProvider
             );
 
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+            $this->commands([PruneCommand::class]);
         }
 
         Reporter::boot();
